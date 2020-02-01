@@ -1,3 +1,4 @@
+#include <sstream>
 #include "include/draw_helper.hpp"
 
 void draw_border(int width, int height, char border_char){

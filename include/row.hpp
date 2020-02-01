@@ -12,6 +12,8 @@ class Row {
 	private:
 		int rowWidth;
 		int blockWidth;
+		int blockStart;
+		int blockEnd;
 		int direction = false;
 		std::vector<bool> boxes;
 	public:
@@ -26,6 +28,8 @@ class Row {
 			for (int i = blockWidth; i != 0; i--){
 				boxes.at(i) = true;
 			}
+			blockStart = 0;
+			blockEnd = blockWidth - 1;
 		}
 
 		Row(const Row &row){
@@ -54,9 +58,11 @@ class Row {
 		 **/
 		void setBlockWidth(int width){
 			blockWidth = width;
-			for (int i = blockWidth; i != 0; i--){
+			for (int i = blockWidth - 1; i != -1; i--){
 				boxes.at(i) = true;
 			}
+			blockStart = 0;
+			blockEnd = blockWidth - 1;
 		}
 
 		/**

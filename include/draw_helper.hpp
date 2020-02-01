@@ -22,4 +22,6 @@ void draw_border(int width, int height, char border_char);
 void draw_centered_string(int x, int y, std::string text);
 
 void draw_rows(int x, int y, std::vector<Row> &rows);
+
+void draw_debug(int x, int y, Row &currentRow);
 #endif // DRAW_HELPER_H

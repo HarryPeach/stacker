@@ -49,7 +49,7 @@ int main()
 				rows.at(currentRow + 1).setBlockWidth(rows.at(currentRow).getBlockWidth());
 				currentRow++;
 			}else{
-				
+
 			}
 		}
 
