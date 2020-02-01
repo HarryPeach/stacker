@@ -27,6 +27,12 @@ class Row {
 			}
 		}
 
+		Row(const Row &row){
+			rowWidth = row.rowWidth;
+			boxes.resize(rowWidth);
+			blockWidth = 0;
+		}
+
 		/**
 		 * Returns the width of the block
 		 **/
@@ -39,6 +45,17 @@ class Row {
 		 **/
 		int getRowWidth(){
 			return rowWidth;
+		}
+
+		/**
+		 * Sets the width of a block
+		 * @param int the width of the block
+		 **/
+		void setBlockWidth(int width){
+			blockWidth = width;
+			for (int i = blockWidth; i != 0; i--){
+				boxes.at(i) = true;
+			}
 		}
 
 		/**

@@ -10,10 +10,12 @@
 #define WINDOW_WIDTH 40
 #define WINDOW_HEIGHT 40
 #define MAX_ROWS 10
+#define INIT_BLOCK_WIDTH 8
 
 WINDOW *mainwindow;
 
 std::vector<Row> rows(MAX_ROWS, Row(WINDOW_WIDTH, 0));
+int currentRow = 0;
 
 int main()
 {
@@ -36,13 +38,14 @@ int main()
 
 	refresh();
 
+	rows.at(currentRow).setBlockWidth(INIT_BLOCK_WIDTH);
 	while(true){
 		char c = getch();
 		if (c == 'q')
 			break;
 
-		// row.step();
-		// row.draw(1, 10);
+		draw_rows(1, WINDOW_HEIGHT, rows);
+		rows.at(currentRow).step();
 	}
 
 	endwin();
