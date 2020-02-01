@@ -16,6 +16,7 @@ WINDOW *mainwindow;
 
 std::vector<Row> rows(MAX_ROWS, Row(WINDOW_WIDTH, 0));
 int currentRow = 0;
+int delay = 50;
 
 int main()
 {
@@ -27,7 +28,7 @@ int main()
 
 	cbreak();
 	noecho();
-	timeout(50);
+	timeout(delay);
 	clear();
 
 	draw_centered_string(WINDOW_WIDTH / 2, 2, "Stacker!");
