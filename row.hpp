@@ -24,6 +24,15 @@ class Row {
 			return rowWidth;
 		}
 
+		/**
+		 * Moves the block along one step, "bouncing" off of each wall
+		 **/
 		void step();
+
+		/**
+		 * Draws the entire row to the screen at a given set of coordinates
+		 * @param x the x coordinate
+		 * @param y the y coordinate
+		 **/
 		void draw(int x, int y);		
 };
