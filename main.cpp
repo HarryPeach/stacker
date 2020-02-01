@@ -1,6 +1,7 @@
 #include <curses.h>
 #include <iostream>
 #include <sstream>
+#include "row.hpp"
 #include "draw_helper.hpp"
 #include "meta.hpp"
 
@@ -8,6 +9,8 @@
 #define WINDOW_HEIGHT 40
 
 WINDOW *mainwindow;
+// TODO: Change to a vector of rows
+Row row(20, 5);
 
 int main()
 {
@@ -26,6 +29,8 @@ int main()
 	fmt << "Version " << VERSION;
 	draw_centered_string(WINDOW_WIDTH / 2, 3, fmt.str());
 	draw_border(WINDOW_WIDTH, WINDOW_HEIGHT, '#');
+
+	row.draw(20, 10);
 
 	refresh();
 
