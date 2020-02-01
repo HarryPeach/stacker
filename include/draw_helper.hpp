@@ -3,8 +3,8 @@
 
 /**
  * Draws a border of a specific width and height, using a given character.
- * @param width the width of the border
- * @param height the height of the border
+ * @param width the width of the space inside the border
+ * @param height the height of the space inside the border
  * @param border_char the character that should be used to draw the border
  **/
 void draw_border(int width, int height, char border_char);

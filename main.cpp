@@ -10,7 +10,7 @@
 
 WINDOW *mainwindow;
 // TODO: Change to a vector of rows
-Row row(20, 5);
+Row row(40, 1);
 
 int main()
 {
@@ -30,11 +30,15 @@ int main()
 	draw_centered_string(WINDOW_WIDTH / 2, 3, fmt.str());
 	draw_border(WINDOW_WIDTH, WINDOW_HEIGHT, '#');
 
-	row.draw(20, 10);
-
 	refresh();
 
-	getch();
+	while(true){
+		char c = getch();
+		if (c == 'q')
+			break;
+		row.step();
+		row.draw(1, 10);
+	}
 
 	endwin();
 	return 0;

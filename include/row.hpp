@@ -9,6 +9,7 @@ class Row {
 	private:
 		int rowWidth;
 		int blockWidth;
+		int direction = false;
 		std::vector<bool> boxes;
 	public:
 		/**
@@ -19,8 +20,8 @@ class Row {
 			rowWidth = rWidth;
 			blockWidth = bWidth;
 			boxes.resize(rowWidth);
-			for (int i = 0; i < blockWidth; i++){
-				boxes.push_back(true);
+			for (int i = blockWidth; i != 0; i--){
+				boxes.at(i) = true;
 			}
 		}
 
