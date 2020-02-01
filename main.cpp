@@ -1,16 +1,19 @@
 #include <curses.h>
 #include <iostream>
 #include <sstream>
+#include <thread>
+#include <vector>
 #include "include/row.hpp"
 #include "include/draw_helper.hpp"
 #include "include/meta.hpp"
 
 #define WINDOW_WIDTH 40
 #define WINDOW_HEIGHT 40
+#define MAX_ROWS 10
 
 WINDOW *mainwindow;
-// TODO: Change to a vector of rows
-Row row(40, 1);
+
+std::vector<Row> rows(MAX_ROWS, Row(WINDOW_WIDTH, 0));
 
 int main()
 {
@@ -22,6 +25,7 @@ int main()
 
 	cbreak();
 	noecho();
+	timeout(50);
 	clear();
 
 	draw_centered_string(WINDOW_WIDTH / 2, 2, "Stacker!");
@@ -36,8 +40,9 @@ int main()
 		char c = getch();
 		if (c == 'q')
 			break;
-		row.step();
-		row.draw(1, 10);
+
+		// row.step();
+		// row.draw(1, 10);
 	}
 
 	endwin();

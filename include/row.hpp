@@ -1,3 +1,5 @@
+#ifndef ROW_H
+#define ROW_H
 #include <vector>
 #include <curses.h>
 /**
@@ -51,3 +53,4 @@ class Row {
 		 **/
 		void draw(int x, int y);		
 };
+#endif // ROW_H
