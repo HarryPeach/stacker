@@ -1,0 +1,1 @@
+void draw_border(int width, int height, char border_char);
