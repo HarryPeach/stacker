@@ -11,5 +11,5 @@ Stacker is a C++ implemenation of the classis tower stacking game
 
 ## Generating Documentation
 1. Install [Doxygen](http://www.doxygen.nl/)
-2. Run the command ```doxygen doygen.config```
+2. Run the command ```make docs``` or ```doxygen doxygen.config```
 3. Browse the documentation at ```docs/```
