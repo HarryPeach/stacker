@@ -1,3 +1,4 @@
+#include <utility>
 #include "include/row.hpp"
 
 void Row::draw(int x, int y){
@@ -37,4 +38,8 @@ void Row::step(){
 			}
 		}
 	}
+}
+
+std::pair<int, int> Row::test_overlay(Row &beneathRow){
+	return std::pair<int, int> (0, 0);
 }

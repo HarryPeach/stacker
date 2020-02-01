@@ -1,6 +1,7 @@
 #ifndef ROW_H
 #define ROW_H
 #include <vector>
+#include <utility>
 #include <curses.h>
 /**
  * This class represents a row within the Stacker game.
@@ -68,6 +69,14 @@ class Row {
 		 * @param x the x coordinate
 		 * @param y the y coordinate
 		 **/
-		void draw(int x, int y);		
+		void draw(int x, int y);
+
+		/**
+		 * Checks whether the current block is above the block in the row beneath
+		 * @param beneathRow the row beneath the current row
+		 * @return A pair of ints, the first being where the block should stop, the second being the length of the block after the check.
+		 * 		   Both integers will be -1 if the block missed the beneath block.
+		 **/  
+		std::pair<int, int> test_overlay(Row &beneathRow);
 };
 #endif // ROW_H
