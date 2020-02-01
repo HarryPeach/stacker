@@ -1,4 +1,4 @@
-#include "draw_helper.hpp"
+#include "include/draw_helper.hpp"
 
 void draw_border(int width, int height, char border_char){
 	for (int i = 0; i <= width; i++){
@@ -12,6 +12,6 @@ void draw_border(int width, int height, char border_char){
 	}
 }
 
-void draw_centered_string(int width, int height, std::string text){
-	mvaddstr(height, width - (text.size() / 2), text.c_str());
+void draw_centered_string(int x, int y, std::string text){
+	mvaddstr(y, x - (text.size() / 2), text.c_str());
 }

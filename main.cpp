@@ -1,9 +1,9 @@
 #include <curses.h>
 #include <iostream>
 #include <sstream>
-#include "row.hpp"
-#include "draw_helper.hpp"
-#include "meta.hpp"
+#include "include/row.hpp"
+#include "include/draw_helper.hpp"
+#include "include/meta.hpp"
 
 #define WINDOW_WIDTH 40
 #define WINDOW_HEIGHT 40
