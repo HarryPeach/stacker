@@ -10,7 +10,7 @@
 #define WINDOW_WIDTH 40
 #define WINDOW_HEIGHT 40
 #define MAX_ROWS 10
-#define INIT_BLOCK_WIDTH 8
+#define INIT_BLOCK_WIDTH 10
 
 WINDOW *mainwindow;
 
@@ -43,6 +43,13 @@ int main()
 		char c = getch();
 		if (c == 'q')
 			break;
+
+		if (c == ' '){
+			if(currentRow == 0){
+				rows.at(currentRow + 1).setBlockWidth(rows.at(currentRow).getBlockWidth());
+				currentRow++;
+			}
+		}
 
 		draw_rows(1, WINDOW_HEIGHT, rows);
 		rows.at(currentRow).step();
