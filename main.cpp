@@ -47,7 +47,7 @@ int main()
 		if (c == ' '){
 			if(currentRow == MAX_ROWS - 1){
 				std::stringstream fmt;
-					fmt << "You won! Final score: " << currentRow;
+					fmt << "You won! Final score: " << currentRow + 1;
 					draw_centered_string(WINDOW_WIDTH / 2, 4, fmt.str().c_str());
 					break;
 			}else if(currentRow == 0){
@@ -57,7 +57,7 @@ int main()
 				std::pair<int, int> infoPair = rows.at(currentRow).test_overlay(rows.at(currentRow - 1));
 				if(infoPair.first == -1){
 					std::stringstream fmt;
-					fmt << "You lost! Final score: " << currentRow;
+					fmt << "You lost! Final score: " << currentRow + 1;
 					draw_centered_string(WINDOW_WIDTH / 2, 4, fmt.str().c_str());
 					break;
 				}
