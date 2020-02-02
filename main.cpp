@@ -41,8 +41,10 @@ int main()
 	rows.at(currentRow).setBlockWidth(INIT_BLOCK_WIDTH);
 	while(true){
 		char c = getch();
-		if (c == 'q')
-			break;
+		if (c == 'q'){
+			endwin();
+			return 0;
+		}
 
 		if (c == ' '){
 			if(currentRow == MAX_ROWS - 1){
