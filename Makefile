@@ -1,14 +1,19 @@
+CC=g++
+CFLAGS=
+LINKLIBS=-lncursesw
+OUTPUT=stacker
+
 .PHONY: docs
 
 default:
-	g++ -o main main.cpp draw_helper.cpp row.cpp -lncursesw
+	$(CC) -o $(OUTPUT) $(CFLAGS) main.cpp draw_helper.cpp row.cpp $(LINKLIBS)
 
 docs:
 	doxygen doxygen.config
 
 run: default
-	./main
+	./$(OUTPUT)
 
 clean:
-	-@rm main 2>/dev/null || true
+	-@rm $(OUTPUT) 2>/dev/null || true
 	-@rm -rf docs/ 2>/dev/null || true

@@ -35,5 +35,19 @@ void Row::step(){
 }
 
 std::pair<int, int> Row::test_overlay(Row &beneathRow){
-	return std::pair<int, int> (0, 0);
+	int blockStartPos = -1;
+	int blockLength = 0;
+
+	for (int i = blockStart; i <= blockEnd; i++){
+		if(blockStartPos == -1){
+			if(beneathRow.getBoxes().at(i)){
+				blockStartPos = i;
+			}
+		}
+
+		if(beneathRow.getBoxes().at(i)){
+			blockLength++;
+		}
+	}
+	return std::pair<int, int> (blockStartPos, blockLength);
 }

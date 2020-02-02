@@ -65,6 +65,10 @@ class Row {
 			blockEnd = blockWidth - 1;
 		}
 
+		std::vector<bool> getBoxes(){
+			return boxes;
+		}
+
 		/**
 		 * Moves the block along one step, "bouncing" off of each wall
 		 **/
@@ -77,11 +81,18 @@ class Row {
 		 **/
 		void draw(int x, int y);
 
+		void moveBlock(int pos){
+			std::fill(boxes.begin(), boxes.end(), false);
+			blockStart = pos;
+			blockEnd = pos + blockWidth;
+			std::fill(boxes.begin() + blockStart, boxes.begin() + blockEnd, true);
+		}
+
 		/**
 		 * Checks whether the current block is above the block in the row beneath
 		 * @param beneathRow the row beneath the current row
 		 * @return A pair of ints, the first being where the block should stop, the second being the length of the block after the check.
-		 * 		   Both integers will be -1 if the block missed the beneath block.
+		 * 		   Iff the block misses then the first int will be -1 and the second will be 0.
 		 **/  
 		std::pair<int, int> test_overlay(Row &beneathRow);
 };

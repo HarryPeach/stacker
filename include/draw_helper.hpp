@@ -1,7 +1,7 @@
 #ifndef DRAW_HELPER_H
 #define DRAW_HELPER_H
 #include <string>
-#include <ncurses.h>
+#include <curses.h>
 #include <vector>
 #include "row.hpp"
 

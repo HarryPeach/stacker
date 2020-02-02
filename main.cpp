@@ -1,5 +1,4 @@
 #include <curses.h>
-#include <iostream>
 #include <sstream>
 #include <thread>
 #include <vector>
@@ -49,13 +48,19 @@ int main()
 			if(currentRow == 0){
 				rows.at(currentRow + 1).setBlockWidth(rows.at(currentRow).getBlockWidth());
 				currentRow++;
+			}else if(currentRow == MAX_ROWS){
+			
 			}else{
-
+				std::pair<int, int> infoPair = rows.at(currentRow).test_overlay(rows.at(currentRow - 1));
+				rows.at(currentRow).setBlockWidth(infoPair.second);
+				rows.at(currentRow).moveBlock(infoPair.first);
+				rows.at(currentRow + 1).setBlockWidth(rows.at(currentRow).getBlockWidth());
+				currentRow++;
 			}
 		}
 
-		draw_rows(1, WINDOW_HEIGHT, rows);
 		rows.at(currentRow).step();
+		draw_rows(1, WINDOW_HEIGHT, rows);
 	}
 
 	endwin();
