@@ -6,10 +6,10 @@
 #include "include/draw_helper.hpp"
 #include "include/meta.hpp"
 
-#define WINDOW_WIDTH 40
-#define WINDOW_HEIGHT 40
-#define MAX_ROWS 10
-#define INIT_BLOCK_WIDTH 10
+#define WINDOW_WIDTH 30
+#define WINDOW_HEIGHT 20
+#define MAX_ROWS 15
+#define INIT_BLOCK_WIDTH 8
 
 WINDOW *mainwindow;
 
@@ -45,23 +45,36 @@ int main()
 			break;
 
 		if (c == ' '){
-			if(currentRow == 0){
+			if(currentRow == MAX_ROWS - 1){
+				std::stringstream fmt;
+					fmt << "You won! Final score: " << currentRow;
+					draw_centered_string(WINDOW_WIDTH / 2, 4, fmt.str().c_str());
+					break;
+			}else if(currentRow == 0){
 				rows.at(currentRow + 1).setBlockWidth(rows.at(currentRow).getBlockWidth());
 				currentRow++;
-			}else if(currentRow == MAX_ROWS){
-			
 			}else{
 				std::pair<int, int> infoPair = rows.at(currentRow).test_overlay(rows.at(currentRow - 1));
+				if(infoPair.first == -1){
+					std::stringstream fmt;
+					fmt << "You lost! Final score: " << currentRow;
+					draw_centered_string(WINDOW_WIDTH / 2, 4, fmt.str().c_str());
+					break;
+				}
 				rows.at(currentRow).setBlockWidth(infoPair.second);
 				rows.at(currentRow).moveBlock(infoPair.first);
 				rows.at(currentRow + 1).setBlockWidth(rows.at(currentRow).getBlockWidth());
 				currentRow++;
 			}
+			
 		}
 
 		rows.at(currentRow).step();
 		draw_rows(1, WINDOW_HEIGHT, rows);
 	}
+
+	timeout(-1);
+	getch();
 
 	endwin();
 	return 0;
