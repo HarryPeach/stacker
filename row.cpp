@@ -7,7 +7,7 @@ void Row::draw(int x, int y){
 		if(boxes.at(i))
 			mvaddch(y, x + i, '@');
 		else
-			mvaddch(y, x + i, '_');
+			mvaddch(y, x + i, ' ');
 	}
 }
 

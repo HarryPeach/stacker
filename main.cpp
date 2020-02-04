@@ -90,9 +90,6 @@ int main()
 
 		rows.at(currentRow).step();
 		draw_rows(1, WINDOW_HEIGHT, rows);
-		std::stringstream fmt;
-		fmt << "Delay: " << delay;
-		mvaddstr(1, 1, fmt.str().c_str());
 	}
 
 	timeout(-1);
