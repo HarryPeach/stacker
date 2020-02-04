@@ -21,7 +21,11 @@ void draw_border(int width, int height, char border_char);
  **/
 void draw_centered_string(int x, int y, std::string text);
 
+/**
+ * Draws all the rows in a given vector of rows. Rows are drawn from the bottom left, up.
+ * @param x The x position to draw rows
+ * @param y The y position to draw rows
+ * @param rows A reference to a vector containing rows
+ **/
 void draw_rows(int x, int y, std::vector<Row> &rows);
-
-void draw_debug(int x, int y, Row &currentRow);
 #endif // DRAW_HELPER_H

@@ -65,6 +65,9 @@ class Row {
 			blockEnd = blockWidth - 1;
 		}
 
+		/**
+		 * Returns the vector of all boxes (squares in a block)
+		 **/
 		std::vector<bool> getBoxes(){
 			return boxes;
 		}
@@ -81,6 +84,10 @@ class Row {
 		 **/
 		void draw(int x, int y);
 
+		/**
+		 * Moves the block to the position provided
+		 * @param pos the position to move the block to
+		 **/
 		void moveBlock(int pos){
 			std::fill(boxes.begin(), boxes.end(), false);
 			blockStart = pos;
