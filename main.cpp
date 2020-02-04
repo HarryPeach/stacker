@@ -9,7 +9,7 @@
 #define WINDOW_WIDTH 30
 #define WINDOW_HEIGHT 20
 #define MAX_ROWS 15
-#define INIT_BLOCK_WIDTH 14
+#define INIT_BLOCK_WIDTH 8
 
 WINDOW *mainwindow;
 
