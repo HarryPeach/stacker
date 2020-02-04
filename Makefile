@@ -1,5 +1,6 @@
 CC=g++
-CFLAGS=
+CFLAGS=-O2
+CFLAGS_DEBUG=-Wall -Wextra -Og -g -pedantic
 LINKLIBS=-lncursesw
 OUTPUT=stacker
 
@@ -7,6 +8,9 @@ OUTPUT=stacker
 
 default:
 	$(CC) -o $(OUTPUT) $(CFLAGS) main.cpp draw_helper.cpp row.cpp $(LINKLIBS)
+
+debug:
+	$(CC) -o $(OUTPUT) $(CFLAGS_DEBUG) main.cpp draw_helper.cpp row.cpp $(LINKLIBS)
 
 docs:
 	doxygen doxygen.config

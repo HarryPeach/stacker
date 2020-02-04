@@ -1,7 +1,9 @@
 # Stacker
 
+![Stacker](https://i.imgur.com/Pv0Wj7i.gif)
+
 ## About
-Stacker is a C++ implemenation of the classis tower stacking game
+Stacker is a C++ implemenation of the classic tower stacking game
 
 ## Building Stacker
 1. Make sure you have the following requirements installed:
