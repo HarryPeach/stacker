@@ -3,7 +3,7 @@
 #include "include/row.hpp"
 
 void Row::draw(int x, int y){
-	for (int i = 0; i < boxes.size(); i++){
+	for (size_t i = 0; i < boxes.size(); i++){
 		if(boxes.at(i))
 			mvaddch(y, x + i, '@');
 		else
@@ -38,7 +38,7 @@ std::pair<int, int> Row::test_overlay(Row &beneathRow){
 	int blockStartPos = -1;
 	int blockLength = 0;
 
-	for (int i = blockStart; i <= blockEnd; i++){
+	for (size_t i = blockStart; i <= blockEnd; i++){
 		if(blockStartPos == -1){
 			if(beneathRow.getBoxes().at(i)){
 				blockStartPos = i;

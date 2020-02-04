@@ -12,8 +12,8 @@ class Row {
 	private:
 		int rowWidth;
 		int blockWidth;
-		int blockStart;
-		int blockEnd;
+		size_t blockStart;
+		size_t blockEnd;
 		int direction = false;
 		std::vector<bool> boxes;
 	public:

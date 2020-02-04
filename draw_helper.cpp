@@ -20,7 +20,7 @@ void draw_centered_string(int x, int y, std::string text){
 }
 
 void draw_rows(int x, int y, std::vector<Row> &rows){
-	for(int i = 0; i < rows.size(); i++){
+	for(size_t i = 0; i < rows.size(); i++){
 		if(rows.at(i).getBlockWidth() != 0)
 			rows.at(i).draw(x, y - i);
 	}
